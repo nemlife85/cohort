@@ -15,3 +15,15 @@ select *
 from
  first_rental
 ;
+
+
+drop temporary table if exists cohort_size;
+create temporary table cohort_size
+
+select
+ left(first_time, 7), 
+ count(*) num
+from 
+	first_rental
+group by 1
+;
